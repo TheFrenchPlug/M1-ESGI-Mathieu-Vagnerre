@@ -1,0 +1,42 @@
+-- Forger une clé RSA --------------------------------------------------------
+
+openssl genrsa -out private-key_mathieu.pem 2048 ==> clé privée
+openssl rsa -in private-key_mathieu.pem -pubout -out public-key_mathieu.pem ==> clé publique
+
+-- Chiffrer un fichier en RSA ------------------------------------------------
+
+openssl rsautl -encrypt -pubin -inkey public-key_mathieu.pem -in texte.txt -out texte_chiffre.txt
+
+-- Dechiffrer un fichier recu ------------------------------------------------
+
+openssl rsautl -encrypt -pubin -inkey <clé-publique-ami> -in texte.txt -out texte_chiffre_mathieu.txt  
+
+
+
+#############################################################################################################
+
+Génerer en python un fichier texte avec la liste des hash en SHA de toutes les chaines de caractère de longueur 4
+
+code:	voir hash_sha.py
+resultat:	voir hash_sha.txt 
+
+#############################################################################################################
+
+
+
+-- Crypter un fichier avec AES------------------------------------------------
+
+openssl enc -aes-256-cbc -pass pass:secret -p -in hash_sha.txt -out file.enc
+
+-- Résutat -------------------------------------------------------------------
+
+salt=E996F6C283B0BAD5
+key=DC21A9621FBB4BBBDC20649196544EA21273E5BB1BE16B57940ECA224A056452
+iv =3DBF804E753C40006899F4A23E7B030D
+
+-- Decrypter un fichier -------------------------------------------------------
+
+openssl enc -aes-256-cbc  -d -A -in file.enc -out decrypt.txt -p
+
+
+ 
