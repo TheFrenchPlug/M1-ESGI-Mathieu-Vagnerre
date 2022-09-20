@@ -1,0 +1,19 @@
+Tout Serveur Web de l'entreprise doit:
+
+- un FQDN géré par la DSI.
+- etre chiffrés
+- utiliser un protocole HTTPS avec un certificat SSL.
+- Etre mis a jour régulièrement (Apache, plugins, ...).
+- Chaques mot de passe utilisés sur le Serveur Web doit respecter le texte d'exigence des mots de passes.
+- une politique de mise a jour doit être mise en place.
+- Les droits des utilisateurs doivent être segmentés.
+- des audits de sécurité doivent être effectués régulièrement
+- limiter au maximum les ports de communication
+
+
+Les certificats et chiffrements:
+
+- pour les serveur web visibles depuis l'exterieur, un certificats certifié par une autorité de certification
+- utiliser le protocole TLS
+- Expirer au bout de 2 ans ( 5 ans pour les certificats logiciels ) 
+- utiliser AES-256bits
